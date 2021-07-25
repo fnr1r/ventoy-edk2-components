@@ -628,6 +628,7 @@ STATIC UINTN ventoy_get_current_device_path_id(VOID)
 {
     UINTN i = 0;
     UINTN Count = 0;
+    UINTN NameLen = 0;
     UINTN MaxId = 0;
     UINTN CurId = 0;
     BOOLEAN Find = FALSE;
@@ -635,6 +636,8 @@ STATIC UINTN ventoy_get_current_device_path_id(VOID)
     EFI_STATUS Status = EFI_SUCCESS;
     EFI_DEVICE_PATH_PROTOCOL *DevicePath = NULL;
     VENDOR_DEVICE_PATH *venPath = NULL;
+    
+    NameLen = StrSize(L"ventoy_xxx");
     
     Status = gBS->LocateHandleBuffer(ByProtocol, &gEfiDevicePathProtocolGuid, 
                                      NULL, &Count, &Handles);
